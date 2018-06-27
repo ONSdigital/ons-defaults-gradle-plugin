@@ -1,0 +1,28 @@
+plugins {
+    // Apply the groovy plugin to add support for Groovy
+    id 'groovy'
+}
+
+archivesBaseName = "ons-defaults-plugin"
+group = "uk.gov.ons"
+version = "0.1"
+
+dependencies {
+    // Use the latest Groovy version for building this library
+    compile 'org.codehaus.groovy:groovy-all:2.4.13'
+    compile gradleApi()
+
+    // Use the awesome Spock testing and specification framework
+    testCompile 'org.spockframework:spock-core:1.0-groovy-2.4'
+}
+
+// In this section you declare where to find the dependencies of your project
+repositories {
+    // Use jcenter for resolving your dependencies.
+    // You can declare any Maven/Ivy/file repository here.
+    jcenter()
+}
+
+configurations {
+    all*.exclude group: 'org.codehaus.groovy', module: 'groovy-all'
+}
